@@ -49,15 +49,27 @@ public class DriverP {
 			        Scann scannerP = new Scann(instrucciones);
 			        List<String> operaciones = scannerP.getOperaciones();
 			        List<String> palabras = scannerP.getPalabras();
+			        List<String> setqs = scannerP.getSetq();
+			        List<String> defuns = scannerP.getDefun();
 
 			        System.out.println("Operaciones:");
 			        for (String operacion : operaciones) {
 			            System.out.println(operacion);
 			        }
-
+			        
 			        System.out.println("\nPalabras:");
 			        for (String palabra : palabras) {
 			            System.out.println(palabra);
+			        }
+
+			        System.out.println("\nSetq:");
+			        for (String setq : setqs) {
+			            System.out.println(setq);
+			        }
+			        
+			        System.out.println("\nDefun:");
+			        for (String defun : defuns) {
+			            System.out.println(defun);
 			        }
 					
 					System.out.println("");
@@ -69,7 +81,7 @@ public class DriverP {
 			}break;
 			
 			case 2: {
-				System.out.println("Ingresa el numero en hexadecimal: ");
+				System.out.println("Perateee");
 			}break;
 			}
 			

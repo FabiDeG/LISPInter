@@ -9,27 +9,86 @@ public class Scann {
     private List<String> palabras;
     private List<String> vatom;
     private List<String> vdefun;
-    private List<String> cequal;
+    private List<String> insdefun;
+    private List<String> vequal;
     private List<String> vlist;
     private List<String> vsetq;
 
+    // We will take every instrucction that is in the list and it depends if it matches with a pattert the instruction will go to an arraylist
     public Scann(List<String> instrucciones) {
         operaciones = new ArrayList<>();
         palabras = new ArrayList<>();
+        vsetq = new ArrayList<>();
+        vatom = new ArrayList<>();
+        vdefun = new ArrayList<>();
+        vequal = new ArrayList<>();
+        vlist = new ArrayList<>();
         
-        Pattern patronEqual = Pattern.compile("^\\(set\\b[^()]*[<>][^()]*\\)");
+        Pattern patronEqual = Pattern.compile("^\\(equal\\b[^()]*[<>][^()]*\\)");
         Pattern patronList = Pattern.compile("^\\(list\\b.*\\)");
         Pattern patronAtom = Pattern.compile("^\\(atom\\b.*\\)");
         Pattern patronDefun = Pattern.compile("^\\(defun\\b.*\\)");
+        boolean inDefun = false;
+        int contadorA = 0;
+        int contadorB = 0;
         Pattern patronSetq = Pattern.compile("^\\(setq\\b.*\\)");
-        Pattern patronOperacion = Pattern.compile("\\d+\\s*\\((\\+|\\-|\\*|/)\\)\\s*\\d+");
+        Pattern patronOperacion = Pattern.compile("^(\\(\\+|\\(\\-|\\(\\*|\\(/).*");
 
         for (String instruccion : instrucciones) {
-            if (patronOperacion.matcher(instruccion).matches()) {
-                operaciones.add(instruccion);
+            if (patronOperacion.matcher(instruccion).matches()) { // if the instruction contains an operation it will go to the Array operaciones
+            	int contador = 0;
+                int contado = 0;
+            	for (int i = 0; i < instruccion.length(); i++) {
+                    if (instruccion.charAt(i) == '(') { // we will count the ( that the instruction have and make a counterA
+                        contador++;
+                    }}
+            	for (int i = 0; i < instruccion.length(); i++) {
+            		if (instruccion.charAt(i) == ')') { // then we will count the ) that the instruction have
+            			contado++;
+                        }
+            	}
+            	if (contador == contado) { // then we will compare the counters and if the counterA is bigger than the counterB
+            		operaciones.add(instruccion);
+            	} else { 
+            	}	
             }
             if (patronSetq.matcher(instruccion).matches()){
-            	operaciones.add(instruccion);
+            	int contador = 0;
+                int contado = 0;
+            	for (int i = 0; i < instruccion.length(); i++) {
+                    if (instruccion.charAt(i) == '(') { // we will count the ( that the instruction have and make a counterA
+                        contador++;
+                    }}
+            	for (int i = 0; i < instruccion.length(); i++) {
+            		if (instruccion.charAt(i) == ')') { // then we will count the ) that the instruction have
+            			contado++;
+                        }
+            	}
+            	if (contador == contado) { // then we will compare the counters and if the counterA is bigger than the counterB
+            		vsetq.add(instruccion);
+            	} else { 
+            	}
+            }
+            if (patronDefun.matcher(instruccion).matches()) { // if the instruction contains a defun
+            	inDefun = true; // it will make inDefun true and save the instruction in vdefun
+            }
+            if (inDefun == true) { // then, if we pass to the other instruction and inDefun stills true
+            	for (int i = 0; i < instruccion.length(); i++) {
+                    if (instruccion.charAt(i) == '(') { // we will count the ( that the instruction have and make a counterA
+                        contadorA++;
+                    }}
+            	for (int i = 0; i < instruccion.length(); i++) {
+            		if (instruccion.charAt(i) == ')') { // then we will count the ) that the instruction have
+            			contadorB++;
+                        }
+            	}
+            	if (contadorA > contadorB) { // then we will compare the counters and if the counterA is bigger than the counterB
+            		vdefun.add(instruccion); // it will take the instruction and put it in insdefun so then it can be made it with the instructions in inDefun
+            		inDefun = true;
+            	} else { // when finally the counters are the same, that means that all the pairs of () are complete, we will take that instruction
+            		vdefun.add(instruccion); // we will save it
+            		inDefun = false; // and change inDefun so this process can take other place
+            	}
             }
             else {
                 palabras.add(instruccion);
@@ -43,5 +102,13 @@ public class Scann {
 
     public List<String> getPalabras() {
         return palabras;
+    }
+    
+    public List<String> getSetq() {
+        return vsetq;
+    }
+    
+    public List<String> getDefun() {
+        return vdefun;
     }
 }
