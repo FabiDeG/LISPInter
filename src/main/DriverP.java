@@ -51,6 +51,10 @@ public class DriverP {
 			        List<String> palabras = scannerP.getPalabras();
 			        List<String> setqs = scannerP.getSetq();
 			        List<String> defuns = scannerP.getDefun();
+			        List<String> atoms = scannerP.getAtom();
+			        List<String> conds = scannerP.getCond();
+			        List<String> equals = scannerP.getEqual();
+			        List<String> lists = scannerP.getList();
 
 			        System.out.println("Operaciones:");
 			        for (String operacion : operaciones) {
@@ -70,6 +74,26 @@ public class DriverP {
 			        System.out.println("\nDefun:");
 			        for (String defun : defuns) {
 			            System.out.println(defun);
+			        }
+			        
+			        System.out.println("\nCond:");
+			        for (String cond : conds) {
+			            System.out.println(cond);
+			        }
+			        
+			        System.out.println("\nAtom:");
+			        for (String atom : atoms) {
+			            System.out.println(atom);
+			        }
+			        
+			        System.out.println("\nEqual:");
+			        for (String equal : equals) {
+			            System.out.println(equal);
+			        }
+			        
+			        System.out.println("\nList:");
+			        for (String list : lists) {
+			            System.out.println(list);
 			        }
 					
 					System.out.println("");

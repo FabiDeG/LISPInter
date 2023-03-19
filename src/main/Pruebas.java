@@ -1,6 +1,8 @@
 package main;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Pruebas {
 
@@ -20,34 +22,55 @@ public class Pruebas {
 	        return elementos;
 	    }
 
-	    public static void main(String[] args) {
+	   // public static void main(String[] args) {
 	        // Crear una lista principal que contendrá las listas con nombre
-	        List<Pruebas> listas = new ArrayList<>();
+	       // List<Pruebas> listas = new ArrayList<>();
 
 	        // Crear una lista de elementos
-	        List<Integer> elementos1 = new ArrayList<>();
-	        elementos1.add(1);
-	        elementos1.add(2);
-	        elementos1.add(3);
+	      //  List<Integer> elementos1 = new ArrayList<>();
+	      //  elementos1.add(1);
+	       // elementos1.add(2);
+	       // elementos1.add(3);
 
 	        // Crear una lista con nombre y agregarla a la lista principal
-	        Pruebas lista1 = new Pruebas("lista1", elementos1);
-	        listas.add(lista1);
+	     //   Pruebas lista1 = new Pruebas("lista1", elementos1);
+	   //     listas.add(lista1);
 
 	        // Crear otra lista de elementos
-	        List<Integer> elementos2 = new ArrayList<>();
-	        elementos2.add(4);
-	        elementos2.add(5);
-	        elementos2.add(6);
+	      //  List<Integer> elementos2 = new ArrayList<>();
+	       // elementos2.add(4);
+	    //    elementos2.add(5);
+	    //    elementos2.add(6);
 
 	        // Crear otra lista con nombre y agregarla a la lista principal
-	        Pruebas lista2 = new Pruebas("lista2", elementos2);
-	        listas.add(lista2);
+	     //   Pruebas lista2 = new Pruebas("lista2", elementos2);
+	      //  listas.add(lista2);
 
 	        // Recorrer la lista principal y mostrar los nombres y los elementos de cada lista
-	        for (Pruebas lista : listas) {
-	            System.out.println("Nombre de la lista: " + lista.getNombre());
-	            System.out.println("Elementos de la lista: " + lista.getElementos());
+	     //   for (Pruebas lista : listas) {
+	      //      System.out.println("Nombre de la lista: " + lista.getNombre());
+	       //     System.out.println("Elementos de la lista: " + lista.getElementos());
+	     //   }
+	   // }
+	    
+	    public static void main(String[] args) {
+	        Pattern patronEqual = Pattern.compile("^\\((equal|<|>)");
+
+	        String[] expresiones = {
+	                "(equal a b)",
+	                "(< 5 6)",
+	                "(> 3 2)",
+	                "(* 9 6)"
+	        };
+
+	        for (String expresion : expresiones) {
+	            Matcher matcher = patronEqual.matcher(expresion);
+	            if (matcher.find()) {
+	                System.out.println("Coincide: " + expresion);
+	            } else {
+	                System.out.println("No coincide: " + expresion);
+	            }
 	        }
 	    }
+	    
 	}
