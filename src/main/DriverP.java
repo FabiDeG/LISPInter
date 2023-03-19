@@ -1,5 +1,6 @@
 package main;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class DriverP {
@@ -9,6 +10,8 @@ public class DriverP {
 		
 		Scanner scanner = new Scanner(System.in);
 		int opc = 0;
+		
+		
 		
 		do {
 			System.out.println("");
@@ -38,6 +41,25 @@ public class DriverP {
 					System.out.println("");
 					System.out.println("El nombre de tu archivo es: CodeLisp");
 					System.out.println("Cargado archivo...");
+					
+					String archivoLisp = "Prueba.lisp";
+			        Almacenamiento driverP = new Almacenamiento(archivoLisp);
+			        List<String> instrucciones = driverP.getInstrucciones();
+
+			        Scann scannerP = new Scann(instrucciones);
+			        List<String> operaciones = scannerP.getOperaciones();
+			        List<String> palabras = scannerP.getPalabras();
+
+			        System.out.println("Operaciones:");
+			        for (String operacion : operaciones) {
+			            System.out.println(operacion);
+			        }
+
+			        System.out.println("\nPalabras:");
+			        for (String palabra : palabras) {
+			            System.out.println(palabra);
+			        }
+					
 					System.out.println("");
 					System.out.println("Archivo subido");
 					System.out.println("");
