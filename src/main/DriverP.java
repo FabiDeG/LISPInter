@@ -2,6 +2,7 @@ package main;
 
 import java.util.List;
 import java.util.Scanner;
+import verificador.AriOperations;
 
 public class DriverP {
 
@@ -47,7 +48,7 @@ public class DriverP {
 			        List<String> instrucciones = driverP.getInstrucciones();
 
 			        Scann scannerP = new Scann(instrucciones);
-			        List<String> operaciones = scannerP.getOperaciones();
+			        List<String> operaciones = Scann.getOperaciones();
 			        List<String> palabras = scannerP.getPalabras();
 			        List<String> setqs = scannerP.getSetq();
 			        List<String> defuns = scannerP.getDefun();
@@ -58,7 +59,7 @@ public class DriverP {
 
 			        System.out.println("Operaciones:");
 			        for (String operacion : operaciones) {
-			            System.out.println(operacion);
+			        	AriOperations.operar(operacion);
 			        }
 			        
 			        System.out.println("\nPalabras:");

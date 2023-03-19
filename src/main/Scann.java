@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 public class Scann {
-    private List<String> operaciones;
+    private static List<String> operaciones;
     private List<String> palabras;
     private List<String> vatom;
     private List<String> vdefun;
@@ -94,6 +94,7 @@ public class Scann {
             	} else { // when finally the counters are the same, that means that all the pairs of () are complete, we will take that instruction
             		vdefun.add(instruccion); // we will save it
             		inDefun = false; // and change inDefun so this process can take other place
+            		
             	}
             }
             
@@ -215,7 +216,7 @@ public class Scann {
         }
     }
 
-    public List<String> getOperaciones() {
+    public static List<String> getOperaciones() {
         return operaciones;
     }
 

@@ -7,4 +7,6 @@
   (else else_answer))
 (< 6 9)
 (equal 5 9)
+(*98)
+(+5(*23))
 (list perro)
