@@ -2,9 +2,6 @@ package main;
 
 import java.util.Scanner;
 
-import Main.DtoH;
-import Main.HtoD;
-
 public class DriverP {
 
 	public static void main(String[] args) {

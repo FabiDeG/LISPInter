@@ -6,4 +6,5 @@
  *
  */
 module LISPInter {
+	requires java.scripting;
 }
