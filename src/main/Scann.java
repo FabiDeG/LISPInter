@@ -21,13 +21,17 @@ public class Scann {
         Pattern patronList = Pattern.compile("^\\(list\\b.*\\)");
         Pattern patronAtom = Pattern.compile("^\\(atom\\b.*\\)");
         Pattern patronDefun = Pattern.compile("^\\(defun\\b.*\\)");
-        Pattern patronSetq = Pattern.compile("^\\(set\\b.*\\)");
-        Pattern patronOperacion = Pattern.compile("\\d+\\s*[+\\-*/]\\s*\\d+");
+        Pattern patronSetq = Pattern.compile("^\\(setq\\b.*\\)");
+        Pattern patronOperacion = Pattern.compile("\\d+\\s*\\((\\+|\\-|\\*|/)\\)\\s*\\d+");
 
         for (String instruccion : instrucciones) {
             if (patronOperacion.matcher(instruccion).matches()) {
                 operaciones.add(instruccion);
-            } else {
+            }
+            if (patronSetq.matcher(instruccion).matches()){
+            	operaciones.add(instruccion);
+            }
+            else {
                 palabras.add(instruccion);
             }
         }
