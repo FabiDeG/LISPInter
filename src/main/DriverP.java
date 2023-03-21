@@ -3,6 +3,7 @@ package main;
 import java.util.List;
 import java.util.Scanner;
 import verificador.AriOperations;
+import verificador.vEQUAL;
 import verificador.vLIST;
 import verificador.vSETQ;
 
@@ -95,6 +96,7 @@ public class DriverP {
 			        
 			        System.out.println("\nEqual:");
 			        for (String equal : equals) {
+			        	vEQUAL.realizarE(equal);
 			            System.out.println(equal);
 			        }
 			        
