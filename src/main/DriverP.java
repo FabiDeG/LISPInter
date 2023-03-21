@@ -75,7 +75,6 @@ public class DriverP {
 			        System.out.println("\nSetq:");
 			        for (String setq : setqs) {
 			        	vSETQ.realizarS(setq);
-			            System.out.println(setq);
 			        }
 			        
 			        System.out.println("\nDefun:");
