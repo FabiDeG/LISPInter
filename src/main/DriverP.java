@@ -97,7 +97,6 @@ public class DriverP {
 			        System.out.println("\nEqual:");
 			        for (String equal : equals) {
 			        	vEQUAL.realizarE(equal);
-			            System.out.println(equal);
 			        }
 			        
 			        System.out.println("\nList:");
