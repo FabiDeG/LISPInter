@@ -21,7 +21,6 @@ public class vATOM {
 			Pattern patronLetras = Pattern.compile("^[a-zA-Z]+$");
 			Pattern patronNumeros = Pattern.compile("^\\d+$");
 			for (String part : parts) {
-				System.out.println(part);
 				if (patronLetras.matcher(part).matches()) {
 					res = "false";
 				}
