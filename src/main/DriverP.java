@@ -1,9 +1,11 @@
 package main;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import verificador.AriOperations;
 import verificador.vATOM;
+import verificador.vDEFUN;
 import verificador.vEQUAL;
 import verificador.vLIST;
 import verificador.vSETQ;
@@ -81,6 +83,7 @@ public class DriverP {
 			        }
 			        
 			        System.out.println("\nDefun:");
+			        vDEFUN.recepcion(defuns);
 			        for (String defun : defuns) {
 			            System.out.println(defun);
 			        }

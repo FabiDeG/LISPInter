@@ -1,10 +1,13 @@
 package verificador;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class vDEFUN {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void recepcion(List<String> defuns) {
+    	
 
-	}
+}
 
 }
