@@ -5,16 +5,17 @@ import java.util.StringTokenizer;
 
 public class AriOperations {
 	
+	// Were we take all the operations, we eliminate all the blank spaces and turn infix to postfix, then we evaluate 
 	public static void operar(String operacion) {
-		
-		    String postfix = infixToPostfix(operacion);
+        	String operaciones = operacion.replaceAll("\\s", "");
+		    String postfix = infixToPostfix(operaciones);
 		    int resultado = evaluarPostfix(postfix);
 		    System.out.println(" - Operado: " + operacion);
 		    System.out.println("Resultado = " + resultado);
 
 	}
 	
-	public static int precedencia(char op) {
+	public static int importancia(char op) {
 	    switch (op) {
 	        case '+':
 	        case '-':
@@ -30,21 +31,21 @@ public class AriOperations {
 	}
 	
 	public static String infixToPostfix(String infix) {
-	    Stack<Character> stack = new Stack<>();
-	    StringBuilder postfix = new StringBuilder();
+	    Stack<Character> stack = new Stack<>(); //Se crea una pila (Stack<Character> stack) para almacenar operadores y parentesis
+	    StringBuilder postfix = new StringBuilder();  //Se crea un StringBuilder postfix para almacenar la expresion posfix resultante
 	    for (int i = 0; i < infix.length(); i++) {
 	        char c = infix.charAt(i);
-	        if (Character.isLetterOrDigit(c)) {
+	        if (Character.isLetterOrDigit(c)) { //Si c es un caracter alfabetico o un digito, se añade directamente a la expresion posfix (postfix.append(c))
 	            postfix.append(c);
-	        } else if (c == '(') {
+	        } else if (c == '(') { // Si c es un parentesis abierto '(', se empuja en la pila (stack.push(c))
 	            stack.push(c);
-	        } else if (c == ')') {
+	        } else if (c == ')') { // Si c es un parentesis cerrado ')', se desapila y añade a la expresion posfija todos los operadores hasta encontrar un parentesis abierto '('. Luego, se desapila el parentesis abierto (stack.pop()
 	            while (!stack.isEmpty() && stack.peek() != '(') {
 	                postfix.append(stack.pop());
 	            }
 	            stack.pop();
 	        } else {
-	            while (!stack.isEmpty() && precedencia(c) <= precedencia(stack.peek())) {
+	            while (!stack.isEmpty() && importancia(c) <= importancia(stack.peek())) {
 	                postfix.append(stack.pop());
 	            }
 	            stack.push(c);

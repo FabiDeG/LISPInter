@@ -3,6 +3,7 @@ package main;
 import java.util.List;
 import java.util.Scanner;
 import verificador.AriOperations;
+import verificador.vSETQ;
 
 public class DriverP {
 
@@ -40,9 +41,13 @@ public class DriverP {
 				
 					System.out.println("");
 					System.out.println("");
-					System.out.println("El nombre de tu archivo es: CodeLisp");
+					System.out.println("El nombre de tu archivo es: Prueba.lisp");
+					System.out.println(" ");
 					System.out.println("Cargado archivo...");
-					
+					System.out.println(" ");
+					System.out.println("Archivo subido :)");
+					System.out.println(" ");
+
 					String archivoLisp = "Prueba.lisp";
 			        Almacenamiento driverP = new Almacenamiento(archivoLisp);
 			        List<String> instrucciones = driverP.getInstrucciones();
@@ -69,6 +74,7 @@ public class DriverP {
 
 			        System.out.println("\nSetq:");
 			        for (String setq : setqs) {
+			        	vSETQ.realizarS(setq);
 			            System.out.println(setq);
 			        }
 			        
@@ -97,8 +103,7 @@ public class DriverP {
 			            System.out.println(list);
 			        }
 					
-					System.out.println("");
-					System.out.println("Archivo subido");
+					
 					System.out.println("");
 					System.out.println("");
 					
