@@ -9,4 +9,4 @@
 (equal 5 9)
 (* 9 8)
 (+ 5 (* 2 33))
-(list perro)
+(list perro gato amarillo)

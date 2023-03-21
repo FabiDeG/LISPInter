@@ -3,6 +3,7 @@ package main;
 import java.util.List;
 import java.util.Scanner;
 import verificador.AriOperations;
+import verificador.vLIST;
 import verificador.vSETQ;
 
 public class DriverP {
@@ -99,7 +100,7 @@ public class DriverP {
 			        
 			        System.out.println("\nList:");
 			        for (String list : lists) {
-			            System.out.println(list);
+			        	vLIST.realizarL(list);
 			        }
 					
 					
