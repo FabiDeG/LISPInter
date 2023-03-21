@@ -10,3 +10,4 @@
 (* 9 8)
 (+ 5 (* 2 33))
 (list perro gato amarillo)
+(atom l)

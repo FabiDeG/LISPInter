@@ -3,6 +3,7 @@ package main;
 import java.util.List;
 import java.util.Scanner;
 import verificador.AriOperations;
+import verificador.vATOM;
 import verificador.vEQUAL;
 import verificador.vLIST;
 import verificador.vSETQ;
@@ -91,7 +92,7 @@ public class DriverP {
 			        
 			        System.out.println("\nAtom:");
 			        for (String atom : atoms) {
-			            System.out.println(atom);
+			        	vATOM.realizarA(atom);
 			        }
 			        
 			        System.out.println("\nEqual:");
